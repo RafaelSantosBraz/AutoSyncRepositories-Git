@@ -1,0 +1,11 @@
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Debug\netcoreapp2.1\GitSync.deps.json
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Debug\netcoreapp2.1\GitSync.runtimeconfig.json
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Debug\netcoreapp2.1\GitSync.runtimeconfig.dev.json
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Debug\netcoreapp2.1\GitSync.dll
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.csprojAssemblyReference.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.csproj.CoreCompileInputs.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.AssemblyInfoInputs.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.AssemblyInfo.cs
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Debug\netcoreapp2.1\GitSync.pdb
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.dll
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.pdb
