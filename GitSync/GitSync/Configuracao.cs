@@ -19,7 +19,11 @@ namespace GitSync
 
         public Boolean Verificar()
         {
-            return (File.Exists(Caminho) && ExtrairUsuarioSenha());
+            if (!File.Exists(Caminho) && !CriarArquivo())
+            {
+                return false;
+            }
+            return ExtrairUsuarioSenha();
         }
 
         private Boolean ExtrairUsuarioSenha()
@@ -49,6 +53,22 @@ namespace GitSync
                         }
                     }
                 }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private Boolean CriarArquivo()
+        {
+            try
+            {
+                StreamWriter escrita = File.CreateText(Caminho);
+                escrita.WriteLine("User:");
+                escrita.WriteLine("Password:");
+                escrita.Flush();
                 return true;
             }
             catch

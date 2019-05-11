@@ -22,8 +22,10 @@ namespace GitSync
             Configuracao config = new Configuracao("config.txt");
             if (!config.Verificar())
             {
-                
+                Console.WriteLine("Erro ao manipular Usuário e Senha no arquivo de Configuração!");
             }
+            GitControle controle = new GitControle(config, diretorio);
+            controle.CriarCommit("Teste");
         }
     }
 }
