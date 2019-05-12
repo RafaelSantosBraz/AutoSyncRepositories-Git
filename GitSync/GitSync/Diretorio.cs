@@ -16,6 +16,6 @@ namespace GitSync
         public Boolean Verificar()
         {
             return Directory.Exists(Caminho);
-        }
+        }        
     }
 }

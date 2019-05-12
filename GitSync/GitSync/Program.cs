@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using GitHub;
 
 namespace GitSync
 {

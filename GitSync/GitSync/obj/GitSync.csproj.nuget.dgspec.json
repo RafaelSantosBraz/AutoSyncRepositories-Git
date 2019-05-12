@@ -41,10 +41,6 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
-            "GitHub": {
-              "target": "Package",
-              "version": "[1.13.2, )"
-            },
             "Microsoft.NETCore.App": {
               "target": "Package",
               "version": "[2.1.0, )",

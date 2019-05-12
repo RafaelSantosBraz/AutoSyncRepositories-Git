@@ -2,85 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "Carbon.Data.Protection/0.20.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp2.1/Carbon.Data.Protection.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/Carbon.Data.Protection.dll": {}
-        }
-      },
-      "Carbon.Json/1.9.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Text.Encodings.Web": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Carbon.Json.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Carbon.Json.dll": {}
-        }
-      },
-      "Carbon.Packaging/1.29.1": {
-        "type": "package",
-        "dependencies": {
-          "Carbon.Data.Protection": "0.20.0",
-          "Carbon.Json": "1.9.0",
-          "Carbon.Storage": "1.17.0",
-          "Carbon.Versioning": "1.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Carbon.Packaging.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Carbon.Packaging.dll": {}
-        }
-      },
-      "Carbon.Storage/1.17.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp2.1/Carbon.Storage.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/Carbon.Storage.dll": {}
-        }
-      },
-      "Carbon.VersionControl/1.9.0": {
-        "type": "package",
-        "dependencies": {
-          "Carbon.Storage": "1.17.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Carbon.VersionControl.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Carbon.VersionControl.dll": {}
-        }
-      },
-      "Carbon.Versioning/1.5.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Carbon.Versioning.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Carbon.Versioning.dll": {}
-        }
-      },
-      "GitHub/1.13.2": {
-        "type": "package",
-        "dependencies": {
-          "Carbon.Packaging": "1.29.1",
-          "Carbon.VersionControl": "1.9.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/GitHub.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/GitHub.dll": {}
-        }
-      },
       "Microsoft.NETCore.App/2.1.0": {
         "type": "package",
         "dependencies": {
@@ -286,105 +207,10 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
-      },
-      "System.Text.Encodings.Web/4.5.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "Carbon.Data.Protection/0.20.0": {
-      "sha512": "TLBFPSZYNYP/Xz7KXOdV5svvOlW5XYHjp8+prAtf6qkg+kar/UXWq0UDPk7KQiMpDyfnPCytUcLDybI72pHLpA==",
-      "type": "package",
-      "path": "carbon.data.protection/0.20.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "carbon.data.protection.0.20.0.nupkg.sha512",
-        "carbon.data.protection.nuspec",
-        "lib/netcoreapp2.1/Carbon.Data.Protection.dll",
-        "lib/netstandard2.0/Carbon.Data.Protection.dll"
-      ]
-    },
-    "Carbon.Json/1.9.0": {
-      "sha512": "DUkE1HfPwDpXI+7KsemHHK+EhtS08llue3SQDkVZkzCmX8SJiMv1vpHi5p7HbjkDZfb28J+aPsNOlBRE016RYA==",
-      "type": "package",
-      "path": "carbon.json/1.9.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "carbon.json.1.9.0.nupkg.sha512",
-        "carbon.json.nuspec",
-        "lib/netstandard2.0/Carbon.Json.dll"
-      ]
-    },
-    "Carbon.Packaging/1.29.1": {
-      "sha512": "rfbsh3oxUBHMSVH871cy0h1MmwDjEhvMcCPahtqiB0oNbYeyOM9lMt81yYdB8wamcld5NTZBCZ9KJ8OsXoCFYQ==",
-      "type": "package",
-      "path": "carbon.packaging/1.29.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "carbon.packaging.1.29.1.nupkg.sha512",
-        "carbon.packaging.nuspec",
-        "lib/netstandard2.0/Carbon.Packaging.dll"
-      ]
-    },
-    "Carbon.Storage/1.17.0": {
-      "sha512": "LCfJIoCfLHPPp44VWlPTIVHaehTKeFFeUaG5eyvyxCOApsRPattOM/rV4hSdtu7aGLb3QEG/2fGZ46wUOVfGeQ==",
-      "type": "package",
-      "path": "carbon.storage/1.17.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "carbon.storage.1.17.0.nupkg.sha512",
-        "carbon.storage.nuspec",
-        "lib/netcoreapp2.1/Carbon.Storage.dll",
-        "lib/netstandard2.0/Carbon.Storage.dll"
-      ]
-    },
-    "Carbon.VersionControl/1.9.0": {
-      "sha512": "2KjSkUee/L/lob3lAdjFP0xOV3pZnPyFMRVp69guwZxLgqj3Iq1K0Q2Q5BsMtJbzAKd5fu2sIWxm8xS0fr2JMw==",
-      "type": "package",
-      "path": "carbon.versioncontrol/1.9.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "carbon.versioncontrol.1.9.0.nupkg.sha512",
-        "carbon.versioncontrol.nuspec",
-        "lib/netstandard2.0/Carbon.VersionControl.dll"
-      ]
-    },
-    "Carbon.Versioning/1.5.0": {
-      "sha512": "HFGazVtopezeLdOcHjuGpiXOtEABluJmo4G4gTHIjkwmj5fLpcgFqqYzrlcOPOksQEiM1aapLTp+yFWQ6Y8qcQ==",
-      "type": "package",
-      "path": "carbon.versioning/1.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "carbon.versioning.1.5.0.nupkg.sha512",
-        "carbon.versioning.nuspec",
-        "lib/netstandard2.0/Carbon.Versioning.dll"
-      ]
-    },
-    "GitHub/1.13.2": {
-      "sha512": "fH5Cg4vuigeUYrvmJuXuCIGpIqGgVEGLUdzYpRy9yTZBpxFs7EypxiTF6IzcitGBk5f6jt6+kAi3b9XX6UkBVw==",
-      "type": "package",
-      "path": "github/1.13.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "github.1.13.2.nupkg.sha512",
-        "github.nuspec",
-        "lib/netstandard2.0/GitHub.dll"
-      ]
-    },
     "Microsoft.NETCore.App/2.1.0": {
       "sha512": "JNHhG+j5eIhG26+H721IDmwswGUznTwwSuJMFe/08h0X2YarHvA15sVAvUkA/2Sp3W0ENNm48t+J7KTPRqEpfA==",
       "type": "package",
@@ -854,30 +680,10 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
-    },
-    "System.Text.Encodings.Web/4.5.0": {
-      "sha512": "Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
-      "type": "package",
-      "path": "system.text.encodings.web/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netstandard1.0/System.Text.Encodings.Web.dll",
-        "lib/netstandard1.0/System.Text.Encodings.Web.xml",
-        "lib/netstandard2.0/System.Text.Encodings.Web.dll",
-        "lib/netstandard2.0/System.Text.Encodings.Web.xml",
-        "system.text.encodings.web.4.5.0.nupkg.sha512",
-        "system.text.encodings.web.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "GitHub >= 1.13.2",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -922,10 +728,6 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "GitHub": {
-            "target": "Package",
-            "version": "[1.13.2, )"
-          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "[2.1.0, )",
