@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GitSync
 {
-    class ProcessadorCMD
+    class ProcessadorCMD : ProcessadorComandos
     {
 
         ProcessStartInfo InfoProcCMD { get;  }
@@ -19,7 +19,7 @@ namespace GitSync
                 CreateNoWindow = true
             };
         }
-        private Boolean ExecutarComandoCMD(String comando)
+        private Boolean ExecutarComando(String comando)
         {
             try
             {
@@ -36,6 +36,11 @@ namespace GitSync
             {
                 return false;
             }
+        }
+
+        public bool ExecutarComando()
+        {
+            throw new NotImplementedException();
         }
     }
 }

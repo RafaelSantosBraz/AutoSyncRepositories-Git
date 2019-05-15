@@ -18,7 +18,7 @@ namespace GitSync
 
         public Boolean CriarCommit(String mensagem)
         {
-            return ExecutarComandoCMD("dir");
+            return ExecutarComandoCMD("dir");            
         }
 
         private Boolean ExecutarComandoCMD(String comando)
