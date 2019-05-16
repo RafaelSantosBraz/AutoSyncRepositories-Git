@@ -6,9 +6,9 @@ namespace GitSync
 {
     class GitController
     {
-        private GitDirectory WorkDirectory { get; }
-        private GitConfiguration ConfigurationFile { get; }
-        private CommandProcessor Processor { get; }
+        public GitDirectory WorkDirectory { get; }
+        public GitConfiguration ConfigurationFile { get; }
+        public CommandProcessor Processor { get; }
 
         public GitController(string workDirectoryPath)
         {
@@ -21,14 +21,19 @@ namespace GitSync
             {
                 if (e.Message == Exceptions.ConfigurationFileDoesNotExist)
                 {
-                    if (GitConfiguration.CreateConfigurationFile("config.json"))
+                    try
                     {
+                        GitConfiguration.CreateConfigurationFile("config.json");
                         Console.WriteLine("New configuration file created!");
                     }
-                    else
+                    catch
                     {
                         throw new Exception(Exceptions.ConfigurationFileCreationError);
                     }
+                }
+                else
+                {
+                    throw e;
                 }
             }
         }

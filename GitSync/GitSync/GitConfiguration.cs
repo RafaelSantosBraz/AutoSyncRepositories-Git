@@ -33,17 +33,9 @@ namespace GitSync
             }
         }
 
-        public static bool CreateConfigurationFile(string path)
+        public static void CreateConfigurationFile(string path)
         {
-            try
-            {
-                File.WriteAllText(path, JsonConvert.SerializeObject(new GitUser(), Formatting.Indented));
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            File.WriteAllText(path, JsonConvert.SerializeObject(new GitUser(), Formatting.Indented));
         }
     }
 }

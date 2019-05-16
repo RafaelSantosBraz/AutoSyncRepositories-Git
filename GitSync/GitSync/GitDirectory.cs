@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace GitSync
@@ -12,15 +13,27 @@ namespace GitSync
         public GitDirectory(string path)
         {
             Path = path;
-            if (!Verify())
+            Verify();
+        }
+
+        private void Verify()
+        {
+            if (!Directory.Exists(Path))
             {
                 throw new Exception(Exceptions.PathIsNotDirectory);
             }
-        }
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
 
-        private bool Verify()
-        {
-            return Directory.Exists(Path);
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+
+            }
+            else
+            {
+                throw new Exception(Exceptions.OSPlatformNotSupported);
+            }
         }
     }
 }
