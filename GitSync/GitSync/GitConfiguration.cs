@@ -8,8 +8,9 @@ namespace GitSync
 {
     class GitConfiguration
     {
-        private GitUser User { get; }
-        private string ConfigurationFilePath { get; }
+        public GitUser User { get; }
+        public string ConfigurationFilePath { get; }
+
         public GitConfiguration(string configurationFilePath)
         {
             ConfigurationFilePath = configurationFilePath;
@@ -26,9 +27,22 @@ namespace GitSync
             {
                 return JsonConvert.DeserializeObject<GitUser>(File.ReadAllText(ConfigurationFilePath));
             }
-            catch 
+            catch
             {
                 throw new Exception(Exceptions.ConfigurationFileManipulationError);
+            }
+        }
+
+        public static bool CreateConfigurationFile(string path)
+        {
+            try
+            {
+                File.WriteAllText(path, JsonConvert.SerializeObject(new GitUser(), Formatting.Indented));
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

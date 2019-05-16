@@ -15,11 +15,21 @@ namespace GitSync
             try
             {
                 WorkDirectory = new GitDirectory(workDirectoryPath);
-               
+                ConfigurationFile = new GitConfiguration("config.json");
             }
             catch (Exception e)
             {
-                throw e;
+                if (e.Message == Exceptions.ConfigurationFileDoesNotExist)
+                {
+                    if (GitConfiguration.CreateConfigurationFile("config.json"))
+                    {
+                        Console.WriteLine("New configuration file created!");
+                    }
+                    else
+                    {
+                        throw new Exception(Exceptions.ConfigurationFileCreationError);
+                    }
+                }
             }
         }
 

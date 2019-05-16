@@ -7,7 +7,7 @@ namespace GitSync
     {
         static void Main(string[] args)
         {
-
+            GitController controller = new GitController(".");
         }
     }
 }

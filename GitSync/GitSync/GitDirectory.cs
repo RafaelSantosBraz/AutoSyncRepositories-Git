@@ -14,7 +14,7 @@ namespace GitSync
             Path = path;
             if (!Verify())
             {
-                throw new Exception("The informed path is not a valid directory!");
+                throw new Exception(Exceptions.PathIsNotDirectory);
             }
         }
 
