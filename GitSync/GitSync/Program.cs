@@ -14,7 +14,7 @@ namespace GitSync
                 //    return;
                 //}
                 //new GitController(@args[0]).GitAutoSync(args[1]);
-                new GitController(@"D:\GitHub\AutoSyncRepositories-Git").GitAutoSync("Adição de command Add e Commit");
+                new GitController(@"D:\GitHub\AutoSyncRepositories-Git").GitAutoSync("Adição de command Add e Commit", true);
             }
             catch (Exception e)
             {

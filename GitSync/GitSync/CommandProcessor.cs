@@ -117,5 +117,21 @@ namespace GitSync
             }
             return commitMessage;
         }
+
+        public static bool GitPullPrivate(string directoryPath, GitUser user)
+        {
+            return ValidateGitPullAnswer(RunCommand(Commands.GitPull + "\n" + user.UserName + "\n" + user.Password, directoryPath, GetCurrentOS()));
+        }
+
+        public static bool GitPullPublic(string directoryPath)
+        {         
+            return ValidateGitPullAnswer(RunCommand(Commands.GitPull, directoryPath, GetCurrentOS()));
+        }
+
+        private static bool ValidateGitPullAnswer(string outPutResult)
+        {
+            // It doesn't need any verification yet
+            return true;
+        }
     }
 }

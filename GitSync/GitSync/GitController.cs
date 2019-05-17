@@ -37,7 +37,7 @@ namespace GitSync
             }
         }
 
-        public bool GitAutoSync(string commitMessage)
+        public bool GitAutoSync(string commitMessage, bool isPrivate)
         {
             try
             {
@@ -49,10 +49,24 @@ namespace GitSync
                 {
                     return false;
                 }
+                if (isPrivate)
+                {
+                    if (!CommandProcessor.GitPullPrivate(WorkingDirectory.Path, ConfigurationFile.User))
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (!CommandProcessor.GitPullPublic(WorkingDirectory.Path))
+                    {
+                        return false;
+                    }
+                }
 
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
