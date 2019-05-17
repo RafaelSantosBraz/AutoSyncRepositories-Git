@@ -42,6 +42,7 @@ namespace GitSync
                         FileName = fileName,
                         Arguments = arguments,
                         RedirectStandardOutput = true,
+                        RedirectStandardInput = true,
                         UseShellExecute = false,
                         CreateNoWindow = true,
                         WorkingDirectory = workingDirectory
