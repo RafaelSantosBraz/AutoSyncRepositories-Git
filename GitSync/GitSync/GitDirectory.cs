@@ -8,7 +8,7 @@ namespace GitSync
 {
     class GitDirectory
     {
-        private string Path { get; }
+        public string Path { get; }
 
         public GitDirectory(string path)
         {

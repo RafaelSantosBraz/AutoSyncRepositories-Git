@@ -6,14 +6,14 @@ namespace GitSync
 {
     class GitController
     {
-        public GitDirectory WorkDirectory { get; }
-        public GitConfiguration ConfigurationFile { get; }       
+        public GitDirectory WorkingDirectory { get; }
+        public GitConfiguration ConfigurationFile { get; }
 
         public GitController(string workDirectoryPath)
         {
             try
             {
-                WorkDirectory = new GitDirectory(workDirectoryPath);
+                WorkingDirectory = new GitDirectory(workDirectoryPath);
                 ConfigurationFile = new GitConfiguration("config.json");
             }
             catch (Exception e)
@@ -34,6 +34,27 @@ namespace GitSync
                 {
                     throw e;
                 }
+            }
+        }
+
+        public bool GitAutoSync(string commitMessage)
+        {
+            try
+            {
+                if (!CommandProcessor.GitAdd(WorkingDirectory.Path))
+                {
+                    return false;
+                }
+                if (!CommandProcessor.GitCommit(WorkingDirectory.Path, commitMessage))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                throw e;
             }
         }
 

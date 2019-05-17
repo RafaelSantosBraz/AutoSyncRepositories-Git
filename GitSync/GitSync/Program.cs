@@ -8,12 +8,13 @@ namespace GitSync
         {
             try
             {
-                if (args.Length != 2)
-                {
-                    Console.WriteLine(Exceptions.ParametersAreNotRight);
-                    return;
-                }                
-                GitController controller = new GitController(args[0]);
+                //if (args.Length != 2)
+                //{
+                //    Console.WriteLine(Exceptions.ParametersAreNotRight);
+                //    return;
+                //}
+                //new GitController(@args[0]).GitAutoSync(args[1]);
+                new GitController(@"D:\GitHub\AutoSyncRepositories-Git").GitAutoSync("Adição de command Add e Commit");
             }
             catch (Exception e)
             {

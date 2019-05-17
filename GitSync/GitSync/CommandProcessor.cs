@@ -6,15 +6,15 @@ namespace GitSync
 {
     static class CommandProcessor
     {
-        private static string RunCMDCommand(string command, string workingDirectory)
-        {
-            return RunCommand(command, workingDirectory, OSPlatform.Windows);
-        }
+        //private static string RunCMDCommand(string command, string workingDirectory)
+        //{
+        //    return RunCommand(command, workingDirectory, OSPlatform.Windows);
+        //}
 
-        private static string RunBashCommand(string command, string workingDirectory)
-        {
-            return RunCommand(command, workingDirectory, OSPlatform.Linux);
-        }
+        //private static string RunBashCommand(string command, string workingDirectory)
+        //{
+        //    return RunCommand(command, workingDirectory, OSPlatform.Linux);
+        //}
 
         private static string RunCommand(string command, string workingDirectory, OSPlatform OS)
         {
@@ -57,7 +57,7 @@ namespace GitSync
         }
 
         public static bool IsGitDirectory(string directoryPath)
-        {            
+        {
             return ValidateIsGitRepositoryAnswer(RunCommand(Commands.IsGitRepository, directoryPath, GetCurrentOS()));
         }
 
@@ -81,6 +81,41 @@ namespace GitSync
                 return OSPlatform.OSX;
             }
             throw new Exception(Exceptions.OSPlatformNotSupported);
+        }
+
+        public static bool GitAdd(string directoryPath)
+        {
+            return ValidateGitAddAnswer(RunCommand(Commands.GitAdd, directoryPath, GetCurrentOS()));
+        }
+
+        private static bool ValidateGitAddAnswer(string outPutResult)
+        {
+            // It doesn't need any verification yet
+            return true;
+        }
+
+        public static bool GitCommit(string directoryPath, string commitMessage)
+        {
+            return ValidateGitCommitAnswer(RunCommand(Commands.GitCommit + FormatCommitMessage(commitMessage), directoryPath, GetCurrentOS()));
+        }
+
+        private static bool ValidateGitCommitAnswer(string outPutResult)
+        {
+            // It doesn't need any verification yet
+            return true;
+        }
+
+        private static string FormatCommitMessage(string commitMessage)
+        {
+            if (commitMessage[0] != '\"')
+            {
+                commitMessage = "\"" + commitMessage;
+            }
+            if (commitMessage[commitMessage.Length - 1] != '\"')
+            {
+                commitMessage += "\"";
+            }
+            return commitMessage;
         }
     }
 }
