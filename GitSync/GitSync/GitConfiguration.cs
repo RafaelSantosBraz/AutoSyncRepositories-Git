@@ -13,8 +13,15 @@ namespace GitSync
 
         public GitConfiguration(string configurationFilePath)
         {
-            ConfigurationFilePath = configurationFilePath;
-            User = Verify();
+            try
+            {
+                ConfigurationFilePath = configurationFilePath;
+                User = Verify();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         private GitUser Verify()

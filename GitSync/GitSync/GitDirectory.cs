@@ -12,8 +12,15 @@ namespace GitSync
 
         public GitDirectory(string path)
         {
-            Path = path;
-            Verify();
+            try
+            {
+                Path = path;
+                Verify();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         private void Verify()
@@ -22,17 +29,9 @@ namespace GitSync
             {
                 throw new Exception(Exceptions.PathIsNotDirectory);
             }
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {                                
-                Console.WriteLine(CommandProcessor.RunCMDCommand("dir"));
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            if (!CommandProcessor.IsGitDirectory(Path))
             {
-                Console.WriteLine(CommandProcessor.RunBashCommand("ls"));
-            }
-            else
-            {
-                throw new Exception(Exceptions.OSPlatformNotSupported);
+                throw new Exception(Exceptions.DirectoryIsNotGit);
             }
         }
     }
