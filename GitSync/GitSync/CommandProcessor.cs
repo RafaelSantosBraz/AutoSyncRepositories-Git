@@ -44,11 +44,12 @@ namespace GitSync
                         RedirectStandardOutput = true,
                         RedirectStandardInput = true,
                         UseShellExecute = false,
-                        CreateNoWindow = true,
+                        CreateNoWindow = false,
                         WorkingDirectory = workingDirectory
                     }
                 };
                 process.Start();
+                //Console.WriteLine(process.StandardOutput.);
                 if (user != null)
                 {
                     process.StandardInput.WriteLine(user.UserName);
