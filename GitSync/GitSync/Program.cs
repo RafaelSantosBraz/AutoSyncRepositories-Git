@@ -1,13 +1,11 @@
-﻿using System;
-using System.IO;
-
+﻿
 namespace GitSync
 {
     class Program
     {
         static void Main(string[] args)
         {
-            GitController controller = new GitController(".");            
+            GitController controller = new GitController(".");
         }
     }
 }

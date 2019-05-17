@@ -24,11 +24,11 @@ namespace GitSync
             }
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-
+                Console.WriteLine(CommandProcessor.RunCommand("dir"));
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-
+                Console.WriteLine(CommandProcessor.RunCommand("dir"));
             }
             else
             {

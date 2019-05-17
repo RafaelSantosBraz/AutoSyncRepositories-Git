@@ -8,3 +8,4 @@ D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSy
 D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.AssemblyInfo.cs
 D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.dll
 D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.pdb
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Debug\netcoreapp2.1\GitSync.csprojAssemblyReference.cache

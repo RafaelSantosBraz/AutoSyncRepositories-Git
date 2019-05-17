@@ -7,8 +7,7 @@ namespace GitSync
     class GitController
     {
         public GitDirectory WorkDirectory { get; }
-        public GitConfiguration ConfigurationFile { get; }
-        public CommandProcessor Processor { get; }
+        public GitConfiguration ConfigurationFile { get; }       
 
         public GitController(string workDirectoryPath)
         {
