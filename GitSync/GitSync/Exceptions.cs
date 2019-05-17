@@ -11,5 +11,6 @@ namespace GitSync
         public static readonly string PathIsNotDirectory = "The informed path is not a valid directory!";
         public static readonly string ConfigurationFileCreationError = "Error during creating the configuration file!";
         public static readonly string OSPlatformNotSupported = "The current Operating System is not supported yet!";
+        public static readonly string CommandTerminalError = "Error during running internal terminal commands!";
     }
 }

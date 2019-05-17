@@ -23,12 +23,12 @@ namespace GitSync
                 throw new Exception(Exceptions.PathIsNotDirectory);
             }
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                Console.WriteLine(CommandProcessor.RunCommand("dir"));
+            {                                
+                Console.WriteLine(CommandProcessor.RunCMDCommand("dir"));
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                Console.WriteLine(CommandProcessor.RunCommand("dir"));
+                Console.WriteLine(CommandProcessor.RunBashCommand("ls"));
             }
             else
             {
