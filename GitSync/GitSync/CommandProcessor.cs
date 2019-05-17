@@ -16,7 +16,7 @@ namespace GitSync
         //    return RunCommand(command, workingDirectory, OSPlatform.Linux);
         //}
 
-        private static string RunCommand(string command, string workingDirectory, OSPlatform OS)
+        private static string RunCommand(string command, string workingDirectory, OSPlatform OS, GitUser user = null)
         {
             string fileName, arguments;
             if (OS == OSPlatform.Linux)
@@ -48,6 +48,12 @@ namespace GitSync
                     }
                 };
                 process.Start();
+                if (user != null)
+                {
+                    process.StandardInput.WriteLine(user.UserName);
+                    process.StandardInput.WriteLine(user.Password);
+                    process.StandardInput.Flush();
+                }
                 return process.StandardOutput.ReadToEnd();
             }
             catch
@@ -120,11 +126,11 @@ namespace GitSync
 
         public static bool GitPullPrivate(string directoryPath, GitUser user)
         {
-            return ValidateGitPullAnswer(RunCommand(Commands.GitPull + "\n" + user.UserName + "\n" + user.Password, directoryPath, GetCurrentOS()));
+            return ValidateGitPullAnswer(RunCommand(Commands.GitPull, directoryPath, GetCurrentOS(), user));
         }
 
         public static bool GitPullPublic(string directoryPath)
-        {         
+        {
             return ValidateGitPullAnswer(RunCommand(Commands.GitPull, directoryPath, GetCurrentOS()));
         }
 
