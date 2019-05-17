@@ -44,7 +44,7 @@ namespace GitSync
                         RedirectStandardOutput = true,
                         RedirectStandardInput = true,
                         UseShellExecute = false,
-                        CreateNoWindow = false,
+                        CreateNoWindow = true,
                         WorkingDirectory = workingDirectory
                     }
                 };
@@ -52,9 +52,9 @@ namespace GitSync
                 //Console.WriteLine(process.StandardOutput.);
                 if (user != null)
                 {
-                    process.StandardInput.WriteLine(user.UserName);
-                    process.StandardInput.WriteLine(user.Password);
-                    process.StandardInput.Flush();
+                    process.StandardInput.AutoFlush = true;
+                    process.StandardInput.Write(user.UserName);
+                    process.StandardInput.Write(user.Password);                    
                 }
                 return process.StandardOutput.ReadToEnd();
             }
