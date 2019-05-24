@@ -63,8 +63,7 @@ namespace GitSync
                         return false;
                     }
                 }
-
-                return true;
+                return CommandProcessor.GitPush(WorkingDirectory.Path, ConfigurationFile.User);                
             }
             catch (Exception e)
             {

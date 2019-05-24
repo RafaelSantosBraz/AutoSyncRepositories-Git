@@ -43,22 +43,23 @@ namespace GitSync
                         Arguments = arguments,
                         RedirectStandardOutput = true,
                         RedirectStandardInput = true,
+                        RedirectStandardError = true,
                         UseShellExecute = false,
                         CreateNoWindow = false,
                         WorkingDirectory = workingDirectory
                     }
                 };
                 process.Start();
-                process.StandardError.ReadLine();
+                //process.StandardError.ReadLine();
                 if (user != null)
-                {                    
-                    process.StandardOutput.ReadLine();
+                {
+                    //process.StandardOutput.ReadLine();
                     process.StandardInput.WriteLine(user.UserName);
-                    process.StandardInput.Flush();
-                    process.StandardOutput.ReadLine();
+                    //process.StandardInput.Flush();
+                    //process.StandardOutput.ReadLine();
                     process.StandardInput.WriteLine(user.Password);
-                    process.StandardInput.Flush();
-                }                               
+                    //process.StandardInput.Flush();
+                }
                 return process.StandardOutput.ReadLine();
             }
             catch
@@ -129,6 +130,11 @@ namespace GitSync
             return commitMessage;
         }
 
+        public static bool GitPush(string directoryPath, GitUser user)
+        {
+            return ValidateGitPushAnswer(RunCommand(Commands.GitPush, directoryPath, GetCurrentOS(), user));
+        }
+
         public static bool GitPullPrivate(string directoryPath, GitUser user)
         {
             return ValidateGitPullAnswer(RunCommand(Commands.GitPull, directoryPath, GetCurrentOS(), user));
@@ -140,6 +146,12 @@ namespace GitSync
         }
 
         private static bool ValidateGitPullAnswer(string outPutResult)
+        {
+            // It doesn't need any verification yet
+            return true;
+        }
+
+        private static bool ValidateGitPushAnswer(string outPutResult)
         {
             // It doesn't need any verification yet
             return true;
