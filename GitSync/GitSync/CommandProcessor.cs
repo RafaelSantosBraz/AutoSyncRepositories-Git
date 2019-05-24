@@ -44,19 +44,22 @@ namespace GitSync
                         RedirectStandardOutput = true,
                         RedirectStandardInput = true,
                         UseShellExecute = false,
-                        CreateNoWindow = true,
+                        CreateNoWindow = false,
                         WorkingDirectory = workingDirectory
                     }
                 };
                 process.Start();
-                //Console.WriteLine(process.StandardOutput.);
+                process.StandardError.ReadLine();
                 if (user != null)
-                {
-                    process.StandardInput.AutoFlush = true;
-                    process.StandardInput.Write(user.UserName);
-                    process.StandardInput.Write(user.Password);                    
-                }
-                return process.StandardOutput.ReadToEnd();
+                {                    
+                    process.StandardOutput.ReadLine();
+                    process.StandardInput.WriteLine(user.UserName);
+                    process.StandardInput.Flush();
+                    process.StandardOutput.ReadLine();
+                    process.StandardInput.WriteLine(user.Password);
+                    process.StandardInput.Flush();
+                }                               
+                return process.StandardOutput.ReadLine();
             }
             catch
             {
@@ -71,7 +74,7 @@ namespace GitSync
 
         private static bool ValidateIsGitRepositoryAnswer(string outPutResult)
         {
-            return outPutResult == "true\n";
+            return outPutResult == "true";
         }
 
         public static OSPlatform GetCurrentOS()
