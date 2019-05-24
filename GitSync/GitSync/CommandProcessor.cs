@@ -1,160 +1,92 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using LibGit2Sharp;
+using LibGit2Sharp.Handlers;
 
 namespace GitSync
 {
     static class CommandProcessor
     {
-        //private static string RunCMDCommand(string command, string workingDirectory)
-        //{
-        //    return RunCommand(command, workingDirectory, OSPlatform.Windows);
-        //}
-
-        //private static string RunBashCommand(string command, string workingDirectory)
-        //{
-        //    return RunCommand(command, workingDirectory, OSPlatform.Linux);
-        //}
-
-        private static string RunCommand(string command, string workingDirectory, OSPlatform OS, GitUser user = null)
+        public static bool GitAddAll(Repository repository)
         {
-            string fileName, arguments;
-            if (OS == OSPlatform.Linux)
-            {
-                fileName = "/bin/bash";
-                arguments = "-c \" " + command + " \"";
-            }
-            else if (OS == OSPlatform.Windows)
-            {
-                fileName = "cmd.exe";
-                arguments = "/C " + command;
-            }
-            else
-            {
-                throw new Exception(Exceptions.OSPlatformNotSupported);
-            }
             try
             {
-                Process process = new Process()
+                Commands.Stage(repository, "*");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+
+        public static bool GitCommit(Repository repository, GitUser user, String message)
+        {
+            try
+            {
+                Signature author = new Signature(user.UserName, "@" + user.UserName, DateTime.Now);
+                repository.Commit(message, author, author);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+
+        public static bool GitPull(Repository repository, GitUser user)
+        {
+            try
+            {
+                PullOptions options = new PullOptions()
                 {
-                    StartInfo = new ProcessStartInfo()
+                    FetchOptions = new FetchOptions()
                     {
-                        FileName = fileName,
-                        Arguments = arguments,
-                        RedirectStandardOutput = true,
-                        RedirectStandardInput = true,
-                        RedirectStandardError = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = false,
-                        WorkingDirectory = workingDirectory
+                        CredentialsProvider = new CredentialsHandler(
+                            (url, usernameFromUrl, types) =>
+                                new UsernamePasswordCredentials()
+                                {
+                                    Username = user.UserName,
+                                    Password = user.Password
+                                })
                     }
                 };
-                process.Start();
-                //process.StandardError.ReadLine();
-                if (user != null)
+                Signature signature = new Signature(new Identity(user.UserName, "@" + user.UserName), DateTimeOffset.Now);
+                Commands.Pull(repository, signature, options);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+
+        public static bool GitPush(Repository repository, GitUser user)
+        {
+            try
+            {
+                PushOptions options = new PushOptions()
                 {
-                    //process.StandardOutput.ReadLine();
-                    process.StandardInput.WriteLine(user.UserName);
-                    //process.StandardInput.Flush();
-                    //process.StandardOutput.ReadLine();
-                    process.StandardInput.WriteLine(user.Password);
-                    //process.StandardInput.Flush();
-                }
-                return process.StandardOutput.ReadLine();
+                    CredentialsProvider = new CredentialsHandler(
+                        (url, usernameFromUrl, types) =>
+                            new UsernamePasswordCredentials()
+                            {
+                                Username = user.UserName,
+                                Password = user.Password
+                            })
+                };
+                repository.Network.Push(repository.Branches["master"], options);
+                return true;
             }
-            catch
+            catch (Exception e)
             {
-                throw new Exception(Exceptions.CommandTerminalError);
+                Console.WriteLine(e.Message);
+                return false;
             }
-        }
-
-        public static bool IsGitDirectory(string directoryPath)
-        {
-            return ValidateIsGitRepositoryAnswer(RunCommand(Commands.IsGitRepository, directoryPath, GetCurrentOS()));
-        }
-
-        private static bool ValidateIsGitRepositoryAnswer(string outPutResult)
-        {
-            return outPutResult == "true";
-        }
-
-        public static OSPlatform GetCurrentOS()
-        {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return OSPlatform.Windows;
-            }
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                return OSPlatform.Linux;
-            }
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            {
-                return OSPlatform.OSX;
-            }
-            throw new Exception(Exceptions.OSPlatformNotSupported);
-        }
-
-        public static bool GitAdd(string directoryPath)
-        {
-            return ValidateGitAddAnswer(RunCommand(Commands.GitAdd, directoryPath, GetCurrentOS()));
-        }
-
-        private static bool ValidateGitAddAnswer(string outPutResult)
-        {
-            // It doesn't need any verification yet
-            return true;
-        }
-
-        public static bool GitCommit(string directoryPath, string commitMessage)
-        {
-            return ValidateGitCommitAnswer(RunCommand(Commands.GitCommit + FormatCommitMessage(commitMessage), directoryPath, GetCurrentOS()));
-        }
-
-        private static bool ValidateGitCommitAnswer(string outPutResult)
-        {
-            // It doesn't need any verification yet
-            return true;
-        }
-
-        private static string FormatCommitMessage(string commitMessage)
-        {
-            if (commitMessage[0] != '\"')
-            {
-                commitMessage = "\"" + commitMessage;
-            }
-            if (commitMessage[commitMessage.Length - 1] != '\"')
-            {
-                commitMessage += "\"";
-            }
-            return commitMessage;
-        }
-
-        public static bool GitPush(string directoryPath, GitUser user)
-        {
-            return ValidateGitPushAnswer(RunCommand(Commands.GitPush, directoryPath, GetCurrentOS(), user));
-        }
-
-        public static bool GitPullPrivate(string directoryPath, GitUser user)
-        {
-            return ValidateGitPullAnswer(RunCommand(Commands.GitPull, directoryPath, GetCurrentOS(), user));
-        }
-
-        public static bool GitPullPublic(string directoryPath)
-        {
-            return ValidateGitPullAnswer(RunCommand(Commands.GitPull, directoryPath, GetCurrentOS()));
-        }
-
-        private static bool ValidateGitPullAnswer(string outPutResult)
-        {
-            // It doesn't need any verification yet
-            return true;
-        }
-
-        private static bool ValidateGitPushAnswer(string outPutResult)
-        {
-            // It doesn't need any verification yet
-            return true;
         }
     }
 }

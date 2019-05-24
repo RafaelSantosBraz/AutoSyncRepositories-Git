@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using LibGit2Sharp;
 
 namespace GitSync
 {
     class GitController
     {
-        public GitDirectory WorkingDirectory { get; }
+        public Repository WorkingDirectory { get; }
         public GitConfiguration ConfigurationFile { get; }
 
         public GitController(string workDirectoryPath)
         {
             try
             {
-                WorkingDirectory = new GitDirectory(workDirectoryPath);
+                WorkingDirectory = new Repository(workDirectoryPath);
                 ConfigurationFile = new GitConfiguration("config.json");
             }
             catch (Exception e)
@@ -37,38 +38,21 @@ namespace GitSync
             }
         }
 
-        public bool GitAutoSync(string commitMessage, bool isPrivate)
+        public bool GitAutoSync(string commitMessage)
         {
-            try
+            if (!CommandProcessor.GitAddAll(WorkingDirectory))
             {
-                if (!CommandProcessor.GitAdd(WorkingDirectory.Path))
-                {
-                    return false;
-                }
-                if (!CommandProcessor.GitCommit(WorkingDirectory.Path, commitMessage))
-                {
-                    return false;
-                }
-                if (isPrivate)
-                {
-                    if (!CommandProcessor.GitPullPrivate(WorkingDirectory.Path, ConfigurationFile.User))
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!CommandProcessor.GitPullPublic(WorkingDirectory.Path))
-                    {
-                        return false;
-                    }
-                }
-                return CommandProcessor.GitPush(WorkingDirectory.Path, ConfigurationFile.User);                
+                return false;
             }
-            catch (Exception e)
+            if (!CommandProcessor.GitCommit(WorkingDirectory, ConfigurationFile.User, commitMessage))
             {
-                throw e;
+                return false;
             }
+            if (!CommandProcessor.GitPull(WorkingDirectory, ConfigurationFile.User))
+            {
+                return false;
+            }
+            return CommandProcessor.GitPush(WorkingDirectory, ConfigurationFile.User);
         }
 
     }

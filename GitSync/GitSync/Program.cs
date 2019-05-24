@@ -1,4 +1,5 @@
-﻿using System;  
+﻿using System;
+using LibGit2Sharp;
 
 namespace GitSync
 {
@@ -8,13 +9,12 @@ namespace GitSync
         {
             try
             {
-                //if (args.Length != 2)
-                //{
-                //    Console.WriteLine(Exceptions.ParametersAreNotRight);
-                //    return;
-                //}
-                //new GitController(@args[0]).GitAutoSync(args[1]);
-                new GitController(@"D:\GitHub\Computacao-Grafica").GitAutoSync("Configuração de projeto", false);                
+                if (args.Length != 2)
+                {
+                    Console.WriteLine(Exceptions.ParametersAreNotRight);
+                    return;
+                }
+                new GitController(@args[0]).GitAutoSync(args[1]);                
             }
             catch (Exception e)
             {
