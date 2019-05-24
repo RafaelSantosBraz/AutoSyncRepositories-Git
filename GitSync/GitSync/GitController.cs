@@ -23,8 +23,8 @@ namespace GitSync
                 {
                     try
                     {
-                        GitConfiguration.CreateConfigurationFile("config.json");
-                        Console.WriteLine("New configuration file created!");
+                        GitConfiguration.CreateConfigurationFile("config.json");                        
+                        throw new Exception("New configuration file created! Please fill it with your user information.");
                     }
                     catch
                     {

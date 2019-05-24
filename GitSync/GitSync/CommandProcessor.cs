@@ -22,7 +22,7 @@ namespace GitSync
             }
         }
 
-        public static bool GitCommit(Repository repository, GitUser user, String message)
+        public static bool GitCommit(Repository repository, GitUser user, string message)
         {
             try
             {
