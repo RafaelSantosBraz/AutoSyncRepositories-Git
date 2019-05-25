@@ -26,7 +26,7 @@ namespace GitSync
         {
             try
             {
-                Signature author = new Signature(user.UserName, "@" + user.UserName, DateTime.Now);
+                var author = new Signature(user.UserName, "@" + user.UserName, DateTime.Now);
                 repository.Commit(message, author, author);
                 return true;
             }
@@ -41,21 +41,24 @@ namespace GitSync
         {
             try
             {
-                PullOptions options = new PullOptions()
-                {
-                    FetchOptions = new FetchOptions()
+                Commands.Pull
+                (
+                    repository,
+                    new Signature(new Identity(user.UserName, "@" + user.UserName), DateTimeOffset.Now),
+                    new PullOptions()
                     {
-                        CredentialsProvider = new CredentialsHandler(
-                            (url, usernameFromUrl, types) =>
+                        FetchOptions = new FetchOptions()
+                        {
+                            CredentialsProvider = new CredentialsHandler((url, usernameFromUrl, types) =>
                                 new UsernamePasswordCredentials()
                                 {
                                     Username = user.UserName,
                                     Password = user.Password
-                                })
+                                }
+                            )
+                        }
                     }
-                };
-                Signature signature = new Signature(new Identity(user.UserName, "@" + user.UserName), DateTimeOffset.Now);
-                Commands.Pull(repository, signature, options);
+                );
                 return true;
             }
             catch (Exception e)
@@ -69,17 +72,20 @@ namespace GitSync
         {
             try
             {
-                PushOptions options = new PushOptions()
-                {
-                    CredentialsProvider = new CredentialsHandler(
-                        (url, usernameFromUrl, types) =>
+                repository.Network.Push
+                (
+                    repository.Branches["master"],
+                    new PushOptions()
+                    {
+                        CredentialsProvider = new CredentialsHandler((url, usernameFromUrl, types) =>
                             new UsernamePasswordCredentials()
                             {
                                 Username = user.UserName,
                                 Password = user.Password
-                            })
-                };
-                repository.Network.Push(repository.Branches["master"], options);
+                            }
+                        )
+                    }
+                );
                 return true;
             }
             catch (Exception e)
