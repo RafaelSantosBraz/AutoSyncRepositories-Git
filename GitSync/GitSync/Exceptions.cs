@@ -13,6 +13,6 @@ namespace GitSync
         public static readonly string OSPlatformNotSupported = "The current Operating System is not supported yet!";
         public static readonly string CommandTerminalError = "Error during running internal terminal commands!";
         public static readonly string DirectoryIsNotGit = "The informed path is not a valid Git Repository!";
-        public static readonly string ParametersAreNotRight = "Expected parameters: (1) Git directory path and (2) Commit message between \"\"";
+        public static readonly string ParametersAreNotRight = "Expected parameters: (1) Git directory path - you had better insert it between \"\" - and (2) Commit message between \"\"";
     }
 }
