@@ -29,7 +29,7 @@ Executing:
 $ dotnet GitSync.dll some\git\repository\path "commit message here"
 ```
 
-* To run the *.dll* this way, make sure to insert the path using a valid format, for example, if your path is *C:\Users\user\Desktop\my folder*, you must use " " on your path because of the spaces. It is a valid insertion for this case:
+* To run the *.dll* this way, make sure to insert the path using a valid format, for example, if your path is *C:\Users\user\Desktop\my folder*, you must use " " on it because of the spaces. It is a valid insertion for this case:
 
 Paths with spaces:
 ```sh
@@ -42,6 +42,17 @@ $ dotnet GitSync.dll /mnt/c/Users/user/Desktop/my\ folder/ "commit message here"
 ```
 
 * In this case, use \ before the spaces.
+
+### Results
+
+Running GitSync implies the same results as the following Git command lines:
+
+```sh
+$ git add -a
+$ git commit -m "commit message here"
+$ git pull [inserting username and password if needed]
+$ git push [inserting username and password]
+```
 
 ### License
 
