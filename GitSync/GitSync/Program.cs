@@ -15,7 +15,7 @@ namespace GitSync
                     return;
                 }
                 new GitController(@args[0]).GitAutoSync(args[1]);
-                Console.WriteLine("Synced!");
+                Console.WriteLine("\nSynced!");
             }
             catch (Exception e)
             {

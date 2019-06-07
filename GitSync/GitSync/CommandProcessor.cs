@@ -26,7 +26,7 @@ namespace GitSync
         {
             try
             {
-                var author = new Signature(user.UserName, "@" + user.UserName, DateTime.Now);
+                var author = new Signature(user.UserName, user.Email, DateTime.Now);
                 repository.Commit(message, author, author);
                 return true;
             }
@@ -44,7 +44,7 @@ namespace GitSync
                 Commands.Pull
                 (
                     repository,
-                    new Signature(new Identity(user.UserName, "@" + user.UserName), DateTimeOffset.Now),
+                    new Signature(new Identity(user.UserName, user.Email), DateTimeOffset.Now),
                     new PullOptions()
                     {
                         FetchOptions = new FetchOptions()
