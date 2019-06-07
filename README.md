@@ -20,7 +20,7 @@ Gitsync requires [.NET Core Runtime] v2.1+ to run. You also have to use one of t
 
 ### Usage
 
-GitSync does not need installation, just download the latest release available [here](https://github.com/RafaelSantosBraz/AutoSyncRepositories-Git/releases) and edit the file *config.json*. You have to put your GitHub username and password in the configuration file.
+GitSync does not need installation, just download the latest release available [here](https://github.com/RafaelSantosBraz/AutoSyncRepositories-Git/releases) and edit the file *config.json*. You have to put at least your GitHub username and password in the configuration file. For more accurated signature and commit, please add your GitHub e-mail to the configuration file.
 
 After that, you can open your favorite Terminal and run this command to execute the GitSync application.
 
