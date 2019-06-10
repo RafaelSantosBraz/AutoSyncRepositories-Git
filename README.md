@@ -10,7 +10,7 @@ GitSync uses some open source projects to work properly:
 * [LibGit2Sharp] - manage and execute native runtimes for Git commands.
 * [Newtonsoft.Json] - control .JSON files and objects.
 
-### Requirements
+### Requirements (Portable Version)
 
 Gitsync requires [.NET Core Runtime] v2.1+ to run. You also have to use one of those Operating Systems:
 
@@ -18,9 +18,17 @@ Gitsync requires [.NET Core Runtime] v2.1+ to run. You also have to use one of t
 * Windows.
 * MacOS X
 
-### Usage
+### Requirements (Native Versions)
 
-GitSync does not need installation, just download the latest release available [here](https://github.com/RafaelSantosBraz/AutoSyncRepositories-Git/releases) and edit the file *config.json*. You have to put at least your GitHub username and password in the configuration file. For more accurated signature and commit, please add your GitHub e-mail to the configuration file.
+By using native versions, you just have to use one of those Operating Systems:
+
+* Linux x64 distributions.
+* Windows x86 or x84.
+* MacOS X x64.
+
+### Usage (Portable Version)
+
+GitSync does not need installation, just download the latest portable release available [here](https://github.com/RafaelSantosBraz/AutoSyncRepositories-Git/releases) and edit the file *config.json*. You have to put at least your GitHub username and password in the configuration file. For more accurated signature and commit, please add your GitHub e-mail to the configuration file.
 
 After that, you can open your favorite Terminal and run this command to execute the GitSync application.
 
@@ -39,6 +47,36 @@ $ dotnet GitSync.dll "C:\Users\user\Desktop\my folder" "commit message here"
 (optional) Paths with spaces on Linux distributions:
 ```sh
 $ dotnet GitSync.dll /mnt/c/Users/user/Desktop/my\ folder/ "commit message here"
+```
+
+* In this case, use \ before the spaces.
+
+### Usage (Native Versions)
+
+GitSync does not need installation, just download the latest native release available [here](https://github.com/RafaelSantosBraz/AutoSyncRepositories-Git/releases) and edit the file *config.json*. You have to put at least your GitHub username and password in the configuration file. For more accurated signature and commit, please add your GitHub e-mail to the configuration file.
+
+After that, you can open your favorite Terminal and run this command to execute the GitSync application.
+
+Executing on Windows:
+```sh
+$ GitSync.exe some\git\repository\path "commit message here"
+```
+
+Executing on Linux distributions and OSX:
+```sh
+$ ./GitSync some\git\repository\path "commit message here"
+```
+
+* To run the executable file this way, make sure to insert the path using a valid format, for example, if your path is *C:\Users\user\Desktop\my folder*, you must use " " on it because of the spaces. It is a valid insertion for this case:
+
+Paths with spaces:
+```sh
+$ GitSync.exe "C:\Users\user\Desktop\my folder" "commit message here"
+```
+
+(optional) Paths with spaces on Linux distributions and OSX:
+```sh
+$ ./GitSync /mnt/c/Users/user/Desktop/my\ folder/ "commit message here"
 ```
 
 * In this case, use \ before the spaces.
