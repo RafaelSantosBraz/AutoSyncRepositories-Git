@@ -14,8 +14,14 @@ namespace GitSync
                     Console.WriteLine(Exceptions.ParametersAreNotRight);
                     return;
                 }
-                new GitController(@args[0]).GitAutoSync(args[1]);
-                Console.WriteLine("\nSynced!");
+                if (new GitController(@args[0]).GitAutoSync(args[1]))
+                {
+                    Console.WriteLine("\nSynced!");
+                }
+                else
+                {
+                    Console.WriteLine(Exceptions.ImcompletedSync);
+                }
             }
             catch (Exception e)
             {

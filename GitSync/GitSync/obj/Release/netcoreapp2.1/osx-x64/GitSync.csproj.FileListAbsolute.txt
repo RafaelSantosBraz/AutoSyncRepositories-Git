@@ -1,0 +1,14 @@
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\osx-x64\libhostpolicy.dylib
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\osx-x64\libhostfxr.dylib
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\osx-x64\GitSync
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\osx-x64\GitSync.deps.json
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\osx-x64\GitSync.runtimeconfig.json
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\osx-x64\GitSync.runtimeconfig.dev.json
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\osx-x64\GitSync.dll
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\osx-x64\GitSync.pdb
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\osx-x64\GitSync.csproj.CoreCompileInputs.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\osx-x64\GitSync.AssemblyInfoInputs.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\osx-x64\GitSync.AssemblyInfo.cs
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\osx-x64\GitSync.dll
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\osx-x64\GitSync.pdb
+D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\osx-x64\GitSync.csprojAssemblyReference.cache
