@@ -10,17 +10,20 @@ namespace GitSync
 
         static void Main(string[] args)
         {
-            //CommandLine.Parser.Default.ParseArguments<Options>(args)
-            //    .WithParsed(opts => RunOptionsAndReturnExitCode(opts));
+            Parser.Default.ParseArguments<Options>(args).WithParsed(opts => ExecuteWithOptions(opts));
+        }
 
+        static void ExecuteWithOptions(Options options)
+        {
+            int optionsCase = Arguments.GetCaseNumber(options);
+            if (optionsCase == Arguments.INVALID_CASE)
+            {
+                Console.WriteLine(Exceptions.InvalidArgsCombination);
+                return;
+            }
             try
             {
-                if (args.Length != 2)
-                {
-                    Console.WriteLine(Exceptions.ParametersAreNotRight);
-                    return;
-                }
-                if (new GitController(args[0]).GitAutoSync(args[1]))
+                if (new GitController(options.Path).ExecuteCase(optionsCase, options))
                 {
                     Console.WriteLine("\nSynced!");
                 }
@@ -33,12 +36,6 @@ namespace GitSync
             {
                 Console.WriteLine(e.Message);
             }
-        }
-
-        static int RunOptionsAndReturnExitCode(Options options)
-        {
-            
-            return 0;
         }
     }
 }

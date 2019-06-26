@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GitSync.arguments;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,13 +7,18 @@ namespace GitSync
 {
     static class Arguments
     {
-       public static List<string> ExtractArgs(string[] args)
+        // options are not right together
+        public const int INVALID_CASE = -1;
+        // do a complete sync (add, commit, pull, push)
+        public const int COMPLETE_SYNC = 0;
+
+        public static int GetCaseNumber(Options options)
         {
-            foreach(string a in args)
+            if (options.Full)
             {
-               
+                return COMPLETE_SYNC;
             }
-            return null;
+            return INVALID_CASE;
         }
 
     }

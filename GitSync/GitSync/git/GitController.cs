@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GitSync.arguments;
 using LibGit2Sharp;
 
 namespace GitSync
@@ -38,7 +39,7 @@ namespace GitSync
             }
         }
 
-        public bool GitAutoSync(string commitMessage)
+        private bool GitAutoSync(string commitMessage)
         {
             if (!CommandProcessor.GitAddAll(WorkingDirectory))
             {
@@ -55,5 +56,14 @@ namespace GitSync
             return CommandProcessor.GitPush(WorkingDirectory, ConfigurationFile.User);
         }
 
+        public bool ExecuteCase(int optionsCase, Options options)
+        {
+            switch (optionsCase)
+            {
+                case Arguments.COMPLETE_SYNC:
+                    return GitAutoSync(options.Commit);
+            }
+            return true;
+        }
     }
 }

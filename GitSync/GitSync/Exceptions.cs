@@ -16,5 +16,6 @@ namespace GitSync
         public static readonly string ParametersAreNotRight = "Expected parameters: (1) Git directory path - you had better insert it between \"\" - and (2) Commit message between \"\"";
         public static readonly string NewConfigurationFileCreated = "New configuration file created! Please fill it with your user information.";
         public static readonly string ImcompletedSync = "Could not completely sync!";
+        public static readonly string InvalidArgsCombination = "The informed arguments are not valid!";
     }
 }

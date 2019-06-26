@@ -5,8 +5,15 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitSync", "GitSync\GitSync.csproj", "{48D7794E-28A1-4021-BA96-65BB8D7EA182}"
 EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "GitSync Setup", "GitSync Setup\GitSync Setup.aiproj", "{622C194B-5764-4294-B1D7-7B352651DD60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		All|ARM = All|ARM
+		All|ARM64 = All|ARM64
+		All|x64 = All|x64
+		All|x86 = All|x86
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
 		Debug|ARM64 = Debug|ARM64
@@ -19,6 +26,16 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|Any CPU.Build.0 = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|ARM.ActiveCfg = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|ARM.Build.0 = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|ARM64.ActiveCfg = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|ARM64.Build.0 = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|x64.ActiveCfg = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|x64.Build.0 = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|x86.ActiveCfg = Release|Any CPU
+		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.All|x86.Build.0 = Release|Any CPU
 		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -39,6 +56,36 @@ Global
 		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.Release|x64.Build.0 = Release|Any CPU
 		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.Release|x86.ActiveCfg = Release|Any CPU
 		{48D7794E-28A1-4021-BA96-65BB8D7EA182}.Release|x86.Build.0 = Release|Any CPU
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|Any CPU.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|Any CPU.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|ARM.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|ARM.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|ARM64.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|ARM64.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|x64.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|x64.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|x86.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.All|x86.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|Any CPU.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|ARM.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|ARM.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|ARM64.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|ARM64.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|x64.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|x64.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|x86.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Debug|x86.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|Any CPU.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|ARM.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|ARM.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|ARM64.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|ARM64.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|x64.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|x64.Build.0 = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|x86.ActiveCfg = DefaultBuild
+		{622C194B-5764-4294-B1D7-7B352651DD60}.Release|x86.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
