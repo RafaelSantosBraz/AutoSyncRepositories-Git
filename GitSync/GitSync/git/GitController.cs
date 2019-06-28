@@ -41,19 +41,22 @@ namespace GitSync
 
         private bool GitAutoSync(string commitMessage)
         {
-            if (!CommandProcessor.GitAddAll(WorkingDirectory))
+            using (var bar = ProgressView.CreateSimpleProgressBar(4, "Complete Git Sync"))
             {
-                return false;
-            }
-            if (!CommandProcessor.GitCommit(WorkingDirectory, ConfigurationFile.User, commitMessage))
-            {
-                return false;
-            }
-            if (!CommandProcessor.GitPull(WorkingDirectory, ConfigurationFile.User))
-            {
-                return false;
-            }
-            return CommandProcessor.GitPush(WorkingDirectory, ConfigurationFile.User);
+                if (!CommandProcessor.GitAddAll(WorkingDirectory))
+                {
+                    return false;
+                }
+                if (!CommandProcessor.GitCommit(WorkingDirectory, ConfigurationFile.User, commitMessage))
+                {
+                    return false;
+                }
+                if (!CommandProcessor.GitPull(WorkingDirectory, ConfigurationFile.User))
+                {
+                    return false;
+                }
+                return CommandProcessor.GitPush(WorkingDirectory, ConfigurationFile.User);
+            }           
         }
 
         public bool ExecuteCase(int optionsCase, Options options)

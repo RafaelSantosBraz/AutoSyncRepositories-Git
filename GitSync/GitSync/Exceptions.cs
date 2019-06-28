@@ -17,5 +17,7 @@ namespace GitSync
         public static readonly string NewConfigurationFileCreated = "New configuration file created! Please fill it with your user information.";
         public static readonly string ImcompletedSync = "Could not completely sync!";
         public static readonly string InvalidArgsCombination = "The informed arguments are not valid!";
+        public static readonly string InvalidWorkingDirectory = "Invalid Working Directory path!";
+        public static readonly string GitUserUpdated = "Git user changes successfully applied!";
     }
 }
