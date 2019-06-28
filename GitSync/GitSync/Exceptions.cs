@@ -19,5 +19,6 @@ namespace GitSync
         public static readonly string InvalidArgsCombination = "The informed arguments are not valid!";
         public static readonly string InvalidWorkingDirectory = "Invalid Working Directory path!";
         public static readonly string GitUserUpdated = "Git user changes successfully applied!";
+        public static readonly string ErrorManipulatingConfigFile = "Error during processing configuration file!";
     }
 }

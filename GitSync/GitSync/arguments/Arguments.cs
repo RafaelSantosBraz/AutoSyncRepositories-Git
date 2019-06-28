@@ -8,7 +8,7 @@ namespace GitSync
     static class Arguments
     {
         // error during processing methods
-        public const int INTERNAL_ERROR = -2;
+        public const int ERROR_CONFIGURATION_FILE = -2;
         // options are not right together
         public const int INVALID_CASE = -1;
         // do a complete sync (add, commit, pull, push)
@@ -31,7 +31,7 @@ namespace GitSync
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return INTERNAL_ERROR;
+                return ERROR_CONFIGURATION_FILE;
             }
             if (options.Full)
             {

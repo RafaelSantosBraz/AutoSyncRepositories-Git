@@ -21,6 +21,11 @@ namespace GitSync
                 Console.WriteLine(Exceptions.InvalidArgsCombination);
                 return;
             }
+            else if (optionsCase == Arguments.ERROR_CONFIGURATION_FILE)
+            {
+                Console.WriteLine(Exceptions.ErrorManipulatingConfigFile);
+                return;
+            }
             try
             {
                 if (new GitController(options.Path).ExecuteCase(optionsCase, options))
