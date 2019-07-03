@@ -20,5 +20,10 @@ namespace GitSync
         public static readonly string InvalidWorkingDirectory = "Invalid Working Directory path!";
         public static readonly string GitUserUpdated = "Git user changes successfully applied!";
         public static readonly string ErrorManipulatingConfigFile = "Error during processing configuration file!";
+        public static readonly string AddingFiles = "Adding files...";
+        public static readonly string CommittingChanges = "Committing changes...";
+        public static readonly string PullingRepository = "Pulling repository...";
+        public static readonly string PushingRepository = "Pushing repository...";
+        public static readonly string ProgressFinished = "Finished!";
     }
 }

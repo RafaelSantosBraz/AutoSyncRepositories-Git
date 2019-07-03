@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using GitSync.git;
 using LibGit2Sharp;
 using LibGit2Sharp.Handlers;
 
@@ -8,36 +9,34 @@ namespace GitSync
 {
     static class CommandProcessor
     {
-        public static bool GitAddAll(Repository repository)
+        public static StageResponse GitAddAll(Repository repository)
         {
             try
             {
                 Commands.Stage(repository, "*");
-                return true;
+                return new StageResponse(true);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return false;
+                return new StageResponse(false, e);
             }
         }
 
-        public static bool GitCommit(Repository repository, GitUser user, string message)
+        public static StageResponse GitCommit(Repository repository, GitUser user, string message)
         {
             try
             {
                 var author = new Signature(user.UserName, user.Email, DateTime.Now);
                 repository.Commit(message, author, author);
-                return true;
+                return new StageResponse(true);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return false;
+                return new StageResponse(false, e);
             }
         }
 
-        public static bool GitPull(Repository repository, GitUser user)
+        public static StageResponse GitPull(Repository repository, GitUser user)
         {
             try
             {
@@ -59,16 +58,15 @@ namespace GitSync
                         }
                     }
                 );
-                return true;
+                return new StageResponse(true);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return false;
+                return new StageResponse(false, e);
             }
         }
 
-        public static bool GitPush(Repository repository, GitUser user)
+        public static StageResponse GitPush(Repository repository, GitUser user)
         {
             try
             {
@@ -86,12 +84,11 @@ namespace GitSync
                         )
                     }
                 );
-                return true;
+                return new StageResponse(true);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return false;
+                return new StageResponse(false, e);
             }
         }
     }

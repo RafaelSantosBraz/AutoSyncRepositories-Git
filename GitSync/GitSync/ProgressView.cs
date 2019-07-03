@@ -8,7 +8,7 @@ namespace GitSync
     static class ProgressView
     {
 
-        public static ProgressBar CreateSimpleProgressBar(int maxProgress, string initialMessage)
+        public static ProgressBar CreateSimpleProgressBar(int maxProgress, string initialMessage, bool colapse = true)
         {           
             return new ProgressBar(
                 maxProgress,
@@ -16,8 +16,8 @@ namespace GitSync
                 new ProgressBarOptions
                 {
                     ProgressCharacter = '─',
-                    CollapseWhenFinished = true,
-                    ProgressBarOnBottom = true,
+                    CollapseWhenFinished = colapse,
+                    ProgressBarOnBottom = false,
                 }
             );           
         }

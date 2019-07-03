@@ -9,6 +9,3 @@ D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\win
 D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\win-x64\GitSync.AssemblyInfo.cs
 D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\win-x64\GitSync.dll
 D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\obj\Release\netcoreapp2.1\win-x64\GitSync.pdb
-D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\win-x64\hostpolicy.dll
-D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\win-x64\hostfxr.dll
-D:\GitHub\AutoSyncRepositories-Git\GitSync\GitSync\bin\Release\netcoreapp2.1\win-x64\GitSync.exe

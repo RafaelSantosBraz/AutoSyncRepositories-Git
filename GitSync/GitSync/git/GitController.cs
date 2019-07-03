@@ -24,10 +24,10 @@ namespace GitSync
                 {
                     try
                     {
-                        GitConfiguration.CreateConfigurationFile("config.json");                                                
+                        GitConfiguration.CreateConfigurationFile("config.json");
                     }
                     catch
-                    {                      
+                    {
                         throw new Exception(Exceptions.ConfigurationFileCreationError);
                     }
                     throw new Exception(Exceptions.NewConfigurationFileCreated);
@@ -41,22 +41,50 @@ namespace GitSync
 
         private bool GitAutoSync(string commitMessage)
         {
-            using (var bar = ProgressView.CreateSimpleProgressBar(4, "Complete Git Sync"))
+            using (var bar = ProgressView.CreateSimpleProgressBar(4, Exceptions.AddingFiles, true))
             {
-                if (!CommandProcessor.GitAddAll(WorkingDirectory))
+                var resp = CommandProcessor.GitAddAll(WorkingDirectory);
+                if (!resp.Response)
                 {
+                    bar.Dispose();
+                    Console.WriteLine(resp.Ex.Message);
                     return false;
                 }
-                if (!CommandProcessor.GitCommit(WorkingDirectory, ConfigurationFile.User, commitMessage))
+                bar.Tick(Exceptions.CommittingChanges);
+                var commit = CommandProcessor.GitCommit(WorkingDirectory, ConfigurationFile.User, commitMessage);
+                if (!commit.Response)
                 {
+                    if (!(commit.Ex is EmptyCommitException))
+                    {
+                        bar.Dispose();
+                        Console.WriteLine(commit.Ex.Message);
+                        return false;
+                    }
+                }
+                bar.Tick(Exceptions.PullingRepository);
+                resp = CommandProcessor.GitPull(WorkingDirectory, ConfigurationFile.User);
+                if (!resp.Response)
+                {
+                    bar.Dispose();
+                    Console.WriteLine(resp.Ex.Message);
                     return false;
                 }
-                if (!CommandProcessor.GitPull(WorkingDirectory, ConfigurationFile.User))
+                bar.Tick(Exceptions.PushingRepository);
+                if (commit.Response)
                 {
+                    resp = CommandProcessor.GitPush(WorkingDirectory, ConfigurationFile.User);
+                    if (resp.Response)
+                    {
+                        bar.Tick(Exceptions.ProgressFinished);
+                        return true;
+                    }
+                    bar.Dispose();
+                    Console.WriteLine(resp.Ex.Message);
                     return false;
                 }
-                return CommandProcessor.GitPush(WorkingDirectory, ConfigurationFile.User);
-            }           
+                bar.Tick(Exceptions.ProgressFinished);
+                return true;
+            }
         }
 
         public bool ExecuteCase(int optionsCase, Options options)
