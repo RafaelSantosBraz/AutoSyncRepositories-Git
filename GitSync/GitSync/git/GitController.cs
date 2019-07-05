@@ -16,7 +16,7 @@ namespace GitSync
             try
             {
                 WorkingDirectory = new Repository(workDirectoryPath);
-                ConfigurationFile = new GitConfiguration("config.json");
+                ConfigurationFile = new GitConfiguration();
             }
             catch (Exception e)
             {
@@ -24,7 +24,7 @@ namespace GitSync
                 {
                     try
                     {
-                        GitConfiguration.CreateConfigurationFile("config.json");
+                        GitConfiguration.CreateConfigurationFile();
                     }
                     catch
                     {

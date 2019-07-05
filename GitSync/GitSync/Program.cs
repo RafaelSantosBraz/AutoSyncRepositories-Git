@@ -10,7 +10,7 @@ namespace GitSync
 
         static void Main(string[] args)
         {
-            Parser.Default.ParseArguments<Options>(args).WithParsed(opts => ExecuteWithOptions(opts));           
+            Parser.Default.ParseArguments<Options>(args).WithParsed(opts => ExecuteWithOptions(opts));            
         }
 
         static void ExecuteWithOptions(Options options)

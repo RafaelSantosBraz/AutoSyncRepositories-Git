@@ -18,8 +18,7 @@ namespace GitSync
         {
             if (options.Path == null)
             {
-                options.Path = CurrentWorkingDirectory();
-                //options.Path = @"D:\GitHub\IHC";
+                options.Path = CurrentWorkingDirectory();                
             }
             if (options.Commit == null)
             {

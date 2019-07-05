@@ -14,7 +14,7 @@ namespace GitSyncSetup
         public string InstallPath { get; }
         public string BinPath { get; }
 
-        private ProgressBar Bar;
+        private ProgressBar Bar { get; set; }
 
         public Installer(string installPath, string binPath)
         {
@@ -100,9 +100,9 @@ namespace GitSyncSetup
         {
             try
             {
-                const string name = "PATH";
+                const string name = "PATH";                
                 string pathvar = Environment.GetEnvironmentVariable(name);
-                var value = pathvar + @";C:\Program Files\GitSync\bin";
+                var value = pathvar + ";" + InstallPath;
                 var target = EnvironmentVariableTarget.User;
                 Environment.SetEnvironmentVariable(name, value, target);
             }

@@ -10,9 +10,29 @@ namespace GitSyncSetup
     {
         static void Main(string[] args)
         {
-            try
+            const string instalationPath = @"C:\GitSync\bin";
+            Console.WriteLine("GitSync Installer");
+            Console.WriteLine("");
+            Console.WriteLine("Instalation Path: '" + instalationPath + "'");
+            int space;            
+            if (Environment.Is64BitOperatingSystem)
             {
-                const string instalationPath = @"C:\Program Files\GitSync\bin";
+                space = 76;
+            }
+            else
+            {
+                space = 66;
+            }
+            Console.WriteLine("Required Space: ~{0}MB", space);
+            Console.WriteLine("");
+            Console.WriteLine("Do you want to continue? (Y/N)");
+            var resp = Console.ReadKey();
+            if (char.ToUpper(resp.KeyChar) != 'Y')
+            {
+                return;
+            }
+            try
+            {                
                 if (Environment.Is64BitOperatingSystem)
                 {
                     new Installer(instalationPath, @".\x64\bin");
@@ -21,8 +41,9 @@ namespace GitSyncSetup
                 {
                     new Installer(instalationPath, @".\x86\bin");
                 }
+                Console.WriteLine("");
                 Console.WriteLine("GitSync was completely installed!");
-                Console.WriteLine("Press any key to close this close...");
+                Console.WriteLine("Press any key to close...");
                 Console.ReadKey();
             }
             catch(Exception e)

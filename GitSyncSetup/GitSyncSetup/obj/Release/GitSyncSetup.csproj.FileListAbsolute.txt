@@ -9,3 +9,4 @@ D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSync
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.csproj.CopyComplete
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.exe
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.pdb
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.csprojAssemblyReference.cache
