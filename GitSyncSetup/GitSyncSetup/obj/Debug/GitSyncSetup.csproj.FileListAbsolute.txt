@@ -1,0 +1,7 @@
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Debug\GitSyncSetup.exe.config
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Debug\GitSyncSetup.exe
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Debug\GitSyncSetup.pdb
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.csprojAssemblyReference.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.csproj.CoreCompileInputs.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.exe
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.pdb
