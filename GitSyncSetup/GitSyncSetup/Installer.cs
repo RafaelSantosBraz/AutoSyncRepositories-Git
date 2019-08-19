@@ -102,9 +102,20 @@ namespace GitSyncSetup
             {
                 const string name = "PATH";                
                 string pathvar = Environment.GetEnvironmentVariable(name);
-                var value = pathvar + ";" + InstallPath;
-                var target = EnvironmentVariableTarget.User;
-                Environment.SetEnvironmentVariable(name, value, target);
+                if (!pathvar.Contains(InstallPath))
+                {
+                    string value = pathvar;
+                    if (pathvar.EndsWith(";"))
+                    {
+                        value += InstallPath;
+                    }
+                    else
+                    {
+                        value += ";" + InstallPath;
+                    }
+                    var target = EnvironmentVariableTarget.User;
+                    Environment.SetEnvironmentVariable(name, value, target);
+                }                
             }
             catch
             {
