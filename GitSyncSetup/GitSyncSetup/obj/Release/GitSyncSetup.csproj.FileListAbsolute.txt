@@ -1,4 +1,6 @@
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\GitSyncSetup.exe.config
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\GitSyncSetup.exe.manifest
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\GitSyncSetup.application
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\GitSyncSetup.exe
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\GitSyncSetup.pdb
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\ShellProgressBar.dll
@@ -6,7 +8,8 @@ D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\System.
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\System.Text.Encoding.CodePages.dll
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.csproj.CoreCompileInputs.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.exe.manifest
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.application
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.csproj.CopyComplete
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.exe
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.pdb
-D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Release\GitSyncSetup.csprojAssemblyReference.cache

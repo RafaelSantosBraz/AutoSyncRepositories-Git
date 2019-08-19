@@ -9,3 +9,8 @@ D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSe
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.csproj.CopyComplete
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.exe
 D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.pdb
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Debug\GitSyncSetup.exe.manifest
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\bin\Debug\GitSyncSetup.application
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.csprojAssemblyReference.cache
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.exe.manifest
+D:\GitHub\AutoSyncRepositories-Git\GitSyncSetup\GitSyncSetup\obj\Debug\GitSyncSetup.application

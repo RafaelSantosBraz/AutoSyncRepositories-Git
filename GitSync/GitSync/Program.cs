@@ -8,7 +8,29 @@ namespace GitSync
     class Program
     {
 
-        static void Main(string[] args) => Parser.Default.ParseArguments<Options>(args).WithParsed(opts => ExecuteWithOptions(opts));
+        static void Main(string[] args)
+        {
+            try
+            {
+                new GitConfiguration();
+                Parser.Default.ParseArguments<Options>(args).WithParsed(opts => ExecuteWithOptions(opts));
+            }
+            catch (Exception e)
+            {
+                if (e.Message == Exceptions.ConfigurationFileDoesNotExist)
+                {
+                    // git user file does not exist
+                    Console.WriteLine(Exceptions.ConfigureGitUser);
+                    Parser.Default.ParseArguments<Options>(new string[] { "--help" }).WithParsed(opts => ExecuteWithOptions(opts));
+                }
+                else
+                {
+                    // git user file exists but it was not possible to read
+                    Console.WriteLine(Exceptions.ConfigurationFileManipulationError);
+                }
+                return;
+            }
+        }
 
         static void ExecuteWithOptions(Options options)
         {

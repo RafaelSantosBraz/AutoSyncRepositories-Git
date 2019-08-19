@@ -36,6 +36,7 @@ namespace GitSyncSetup
             if (space == -1)
             {
                 Console.WriteLine("It was not possible to read the install files!");
+                Console.ReadKey();
                 return;
             }
             Console.WriteLine("Required Space: ~{0}MB", space/1000000); // B to MB
@@ -65,6 +66,7 @@ namespace GitSyncSetup
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine("Could not complete installing! Try again later please.");
+                Console.ReadKey();
             }
         }
 
