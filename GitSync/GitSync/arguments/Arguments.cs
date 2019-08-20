@@ -59,7 +59,7 @@ namespace GitSync
             return DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
 
-        private static void AplyUserChanges(Options options)
+        public static void AplyUserChanges(Options options)
         {
             if (options.Username != null || options.Password != null || options.Email != null)
             {

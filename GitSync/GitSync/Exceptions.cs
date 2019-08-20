@@ -25,6 +25,6 @@ namespace GitSync
         public static readonly string PullingRepository = "Pulling repository...";
         public static readonly string PushingRepository = "Pushing repository...";
         public static readonly string ProgressFinished = "Finished!";
-        public static readonly string ConfigureGitUser = "Insert valid GitHub credentials before using GitSync please.\nIt is necessary to put:\n\t* GitHub username;\n\t* GitHub password; and\n\t* GitHub email.\nPlease use some of these options to change/insert your credentials:";
+        public static readonly string ConfigureGitUser = "Insert valid GitHub credentials before using GitSync please:\n";
     }
 }

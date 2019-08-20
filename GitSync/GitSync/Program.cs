@@ -8,12 +8,13 @@ namespace GitSync
     class Program
     {
 
-        static void Main(string[] args)
+        static void Main(string[] args) => Parser.Default.ParseArguments<Options>(args).WithParsed(opts => ExecuteWithOptions(opts));
+
+        static void ExecuteWithOptions(Options options)
         {
             try
             {
                 new GitConfiguration();
-                Parser.Default.ParseArguments<Options>(args).WithParsed(opts => ExecuteWithOptions(opts));
             }
             catch (Exception e)
             {
@@ -21,7 +22,41 @@ namespace GitSync
                 {
                     // git user file does not exist
                     Console.WriteLine(Exceptions.ConfigureGitUser);
-                    Parser.Default.ParseArguments<Options>(new string[] { "--help" }).WithParsed(opts => ExecuteWithOptions(opts));
+                    Console.Write("* Git username: ");
+                    string username = Console.ReadLine();
+                    Console.Write("* Git email: ");
+                    string email = Console.ReadLine();
+                    Console.Write("* Git password: ");
+                    string pass = "";
+                    do
+                    {
+                        ConsoleKeyInfo key = Console.ReadKey(true);
+                        if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
+                        {
+                            pass += key.KeyChar;
+                            Console.Write("*");
+                        }
+                        else
+                        {
+                            if (key.Key == ConsoleKey.Backspace && pass.Length > 0)
+                            {
+                                pass = pass.Substring(0, (pass.Length - 1));
+                                Console.Write("\b \b");
+                            }
+                            else if (key.Key == ConsoleKey.Enter)
+                            {
+                                break;
+                            }
+                        }
+                    } while (true);
+                    Arguments.AplyUserChanges(
+                        new Options()
+                        {
+                            Username = username,
+                            Email = email,
+                            Password = pass
+                        }
+                        );                    
                 }
                 else
                 {
@@ -30,10 +65,6 @@ namespace GitSync
                 }
                 return;
             }
-        }
-
-        static void ExecuteWithOptions(Options options)
-        {
             int optionsCase = Arguments.GetCaseNumber(options);
             if (optionsCase == Arguments.INVALID_CASE)
             {
