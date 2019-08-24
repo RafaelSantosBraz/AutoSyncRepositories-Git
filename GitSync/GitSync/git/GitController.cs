@@ -13,30 +13,13 @@ namespace GitSync
 
         public GitController(string workDirectoryPath)
         {
-            try
-            {
-                WorkingDirectory = new Repository(workDirectoryPath);
-                ConfigurationFile = new GitConfiguration();
-            }
-            catch (Exception e)
-            {
-                if (e.Message == Exceptions.ConfigurationFileDoesNotExist)
-                {
-                    try
-                    {
-                        GitConfiguration.CreateConfigurationFile();
-                    }
-                    catch
-                    {
-                        throw new Exception(Exceptions.ConfigurationFileCreationError);
-                    }
-                    throw new Exception(Exceptions.NewConfigurationFileCreated);
-                }
-                else
-                {
-                    throw e;
-                }
-            }
+            WorkingDirectory = new Repository(workDirectoryPath);
+            ConfigurationFile = new GitConfiguration();                        
+        }
+
+        public bool Verify()
+        {
+            return ConfigurationFile.VerifyConfigFile();
         }
 
         private bool GitAutoSync(string commitMessage)
