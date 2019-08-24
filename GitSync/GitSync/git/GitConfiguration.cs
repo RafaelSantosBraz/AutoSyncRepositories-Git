@@ -10,35 +10,14 @@ namespace GitSync
     class GitConfiguration
     {
 
-        public static readonly string StandartConfigurationFilePath = GetStandardPath();       
+        public static readonly string StandartConfigurationFilePath = GetStandardPath();
 
-        public GitUser User { get; }
+        public GitUser User { get; set; }
         public string ConfigurationFilePath { get; }
-
-        //public GitConfiguration(string configurationFilePath)
-        //{
-        //    try
-        //    {
-        //        ConfigurationFilePath = configurationFilePath;
-        //        User = Verify();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //}
 
         public GitConfiguration()
         {
-            try
-            {
-                ConfigurationFilePath = StandartConfigurationFilePath;
-                User = Verify();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            ConfigurationFilePath = StandartConfigurationFilePath;
         }
 
         private static string GetStandardPath()
@@ -54,35 +33,64 @@ namespace GitSync
             return null;
         }
 
-        private GitUser Verify()
+        public bool VerifyConfigFile()
         {
             if (!File.Exists(ConfigurationFilePath))
             {
-                throw new Exception(Exceptions.ConfigurationFileDoesNotExist);
+                if (CreateConfigurationFile())
+                {
+                    User = new GitUser();
+                    return true;
+                }
+                else
+                {
+                    User = null;
+                    return false;
+                }
             }
+            else
+            {
+                User = ExtractGitUser();
+                return true;
+            }            
+        }
+
+        private GitUser ExtractGitUser()
+        {
             try
             {
                 return JsonConvert.DeserializeObject<GitUser>(File.ReadAllText(ConfigurationFilePath));
             }
             catch
             {
-                throw new Exception(Exceptions.ConfigurationFileManipulationError);
+                return null;
             }
         }
 
-        //public static void CreateConfigurationFile(string path)
-        //{
-        //    File.WriteAllText(path, JsonConvert.SerializeObject(new GitUser(), Formatting.Indented));
-        //}
-
-        public static void CreateConfigurationFile()
+        public static bool CreateConfigurationFile()
         {
-            File.WriteAllText(StandartConfigurationFilePath, JsonConvert.SerializeObject(new GitUser(), Formatting.Indented));
+            try
+            {
+                File.WriteAllText(StandartConfigurationFilePath, JsonConvert.SerializeObject(new GitUser(), Formatting.Indented));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void UpdateConfigurationFile()
+        public bool UpdateConfigurationFile()
         {
-            File.WriteAllText(StandartConfigurationFilePath, JsonConvert.SerializeObject(User, Formatting.Indented));
+            try
+            {
+                File.WriteAllText(StandartConfigurationFilePath, JsonConvert.SerializeObject(User, Formatting.Indented));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
