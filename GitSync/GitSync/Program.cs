@@ -56,7 +56,7 @@ namespace GitSync
                             Email = email,
                             Password = pass
                         }
-                        );                    
+                    );
                 }
                 else
                 {

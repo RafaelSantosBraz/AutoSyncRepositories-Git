@@ -1,3 +1,9 @@
+/GitSync/GitSync/obj/
+/GitSync/GitSync/bin/
+/GitSyncSetup/GitSyncSetup/bin/
+/GitSyncSetup/GitSyncSetup/obj/
+/GitSyncSetupLinux/GitSyncSetupLinux/obj/
+/GitSyncSetupLinux/GitSyncSetupLinux/bin/
 
 # Created by https://www.gitignore.io/api/csharp,windows
 # Edit at https://www.gitignore.io/?templates=csharp,windows

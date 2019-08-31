@@ -13,16 +13,10 @@ namespace GitSync.arguments
         [Option('c', "commit", Required = false, HelpText = "Git Commit Message.")]
         public string Commit { get; set; }
 
-        [Option('f', "full", Required = false, Default = true, HelpText = "Complete Git Sync (add, commit, pull, and push)")]
+        [Option('f', "full", Required = false, Default = true, HelpText = "Complete Git Sync (add, commit, pull, and push).")]
         public bool Full { get; set; }
 
-        [Option("username", Required = false, HelpText = "Change the stored GitHub username.")]
-        public string Username { get; set; }
-
-        [Option("password", Required = false, HelpText = "Change the stored GitHub password.")]
-        public string Password { get; set; }
-
-        [Option("email", Required = false, HelpText = "Change the stored GitHub email.")]
-        public string Email { get; set; }
+        [Option("change-user", Required = false, Default = false, HelpText = "Allows to change the storaged Git user.")]
+        public bool ChangeUser { get; set; }       
     }
 }
