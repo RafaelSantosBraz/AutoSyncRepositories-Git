@@ -26,5 +26,10 @@ namespace GitSync
         public static readonly string PushingRepository = "Pushing repository...";
         public static readonly string ProgressFinished = "Finished!";
         public static readonly string ConfigureGitUser = "Insert valid GitHub credentials before using GitSync please:\n";
+        public static readonly string ChangeGitUser = "Insert valid GitHub credentials to change your stored Git user:\n";
+        public static readonly string UserChangesApplied = "Git user successfully changed!";
+        public static readonly string UserChangesNotApplied = "It was not possible to change Git user! Try again later please.";
+        public static readonly string UserCreated = "Git user successfully created!";
+        public static readonly string UserNotCreated = "It was not possible to create Git user! Try again later please.";
     }
 }

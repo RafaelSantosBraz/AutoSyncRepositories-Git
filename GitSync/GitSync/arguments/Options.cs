@@ -16,7 +16,7 @@ namespace GitSync.arguments
         [Option('f', "full", Required = false, Default = true, HelpText = "Complete Git Sync (add, commit, pull, and push).")]
         public bool Full { get; set; }
 
-        [Option("change-user", Required = false, Default = false, HelpText = "Allows to change the storaged Git user.")]
+        [Option("change-user", Required = false, Default = false, HelpText = "Change the storaged Git user.")]
         public bool ChangeUser { get; set; }       
     }
 }

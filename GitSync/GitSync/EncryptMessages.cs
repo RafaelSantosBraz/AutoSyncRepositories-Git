@@ -30,7 +30,7 @@ namespace GitSync
                     return null;
                 }
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
@@ -58,7 +58,7 @@ namespace GitSync
                     return null;
                 }
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }
