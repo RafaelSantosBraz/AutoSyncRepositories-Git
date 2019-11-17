@@ -5,9 +5,11 @@ using GitSync.arguments;
 
 namespace GitSync
 {
+    // start point class
     class Program
     {
 
+        // parses the command line arguments and executes them
         static void Main(string[] args) => Parser.Default.ParseArguments<Options>(args).WithParsed(opts => ExecuteWithOptions(opts));
 
         static void ExecuteWithOptions(Options options)
@@ -25,28 +27,29 @@ namespace GitSync
                 return;
             }
             int optionsCase = Arguments.GetCaseNumber(options);
-            if (optionsCase == Arguments.INVALID_CASE)
+            switch (optionsCase)
             {
-                Console.WriteLine(Exceptions.InvalidArgsCombination);
-                return;
-            }
-            if (optionsCase == Arguments.USER_CHANGES)
-            {
-                if (config.RequireUserChange())
-                {
+                case Arguments.INVALID_CASE:
+                    Console.WriteLine(Exceptions.InvalidArgsCombination);
+                    break;
+                case Arguments.USER_CHANGES:
+                    if (config.RequireUserChange())
+                    {
+                        Console.WriteLine(Exceptions.UserChangesApplied);
+                        return;
+                    }
                     Console.WriteLine(Exceptions.UserChangesApplied);
-                    return;
-                }
-                Console.WriteLine(Exceptions.UserChangesApplied);
-                return;
-            }
-            if (new GitController(options.Path).ExecuteCase(optionsCase, options))
-            {
-                Console.WriteLine("\n * Synced! * ");
-            }
-            else
-            {
-                Console.WriteLine(Exceptions.ImcompletedSync);
+                    break;
+                default:
+                    if (new GitController(options.Path).ExecuteCase(optionsCase, options))
+                    {
+                        Console.WriteLine("\n * Synced! * ");
+                    }
+                    else
+                    {
+                        Console.WriteLine(Exceptions.ImcompletedSync);
+                    }
+                    break;
             }
         }
     }

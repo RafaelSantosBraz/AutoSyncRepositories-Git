@@ -6,6 +6,7 @@ using System.Text;
 
 namespace GitSync
 {
+    // security module - user information
     static class EncryptMessages
     {
         public static string Encrypt(string message)
@@ -66,11 +67,13 @@ namespace GitSync
 
         private static byte[] GetKeyVector()
         {
-            return new byte[] { 0, 136, 79, 185, 167, 70, 236, 179, 69, 144, 83, 0, 28, 104, 52, 45, 150, 164, 246, 195, 232, 230, 108, 116, 238, 139, 51, 186, 187, 148, 74, 28 };
+            // just a sample array (not the real one) -- put your own vector here
+            return new byte[] { 0, 136, 79, 185, 167, 70, 236, 179, 69, 144, 83, 0, 28, 104, 52, 45, 150, 164, 246, 195, 232, 230, 108, 116, 238, 139, 51, 186, 187, 148, 74, 28 };            
         }
 
         private static byte[] GetBIVVector()
         {
+            // just a sample array (not the real one) -- put your own vector here
             return new byte[] { 27, 90, 184, 220, 61, 152, 84, 24, 211, 200, 164, 114, 96, 78, 71, 193 };
         }
     }
